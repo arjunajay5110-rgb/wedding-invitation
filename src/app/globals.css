@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-outfit), sans-serif;
+}
+
+:root {
+  --background: #FDFBF7;
+  --foreground: #1E3F20;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom styling for the gold Ganesha image */
+.ganesha-gold {
+  /* Native gold color is processed directly into the image file to prevent white background inversion */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FDFBF7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B28F46;
+}
+
+/* Custom smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Orbiting Flower Wreath classes for the loading screen circle */
+.orbiting-flower-0   { --angle: 0deg; }
+.orbiting-flower-45  { --angle: 45deg; }
+.orbiting-flower-90  { --angle: 90deg; }
+.orbiting-flower-135 { --angle: 135deg; }
+.orbiting-flower-180 { --angle: 180deg; }
+.orbiting-flower-225 { --angle: 225deg; }
+.orbiting-flower-270 { --angle: 270deg; }
+.orbiting-flower-315 { --angle: 315deg; }
+
+.orbiting-flower {
+  position: absolute;
+  transform: rotate(var(--angle)) translateY(-161px);
+  will-change: transform;
+}
+
+@media (min-width: 640px) {
+  .orbiting-flower {
+    transform: rotate(var(--angle)) translateY(-191px);
+  }
+}
+
+.blooming-petal {
+  position: absolute;
+  transform: rotate(var(--angle)) translateY(-153px);
+  transform-origin: center center;
+}
+
+@media (min-width: 640px) {
+  .blooming-petal {
+    transform: rotate(var(--angle)) translateY(-183px);
+  }
+}
+
+@keyframes flower-bloom {
+  0% {
+    transform: scale(0) rotate(-20deg);
+    opacity: 0;
+  }
+  35% {
+    transform: scale(1.2) rotate(5deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(197, 160, 89, 0.65));
+  }
+  65% {
+    transform: scale(1.0) rotate(0deg);
+    opacity: 0.95;
+  }
+  90%, 100% {
+    transform: scale(0) rotate(-20deg);
+    opacity: 0;
+  }
+}
+
+.animate-flower-bloom {
+  animation: flower-bloom 4.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  transform-origin: center bottom;
+}
+
+/* Premium attention-grabbing blinking/pulsing animation for critical links */
+@keyframes button-blink {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 6px -1px rgba(30, 63, 32, 0.15), 0 2px 4px -1px rgba(30, 63, 32, 0.1);
+    background-color: #1E3F20;
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 14px rgba(197, 160, 89, 0.65);
+    background-color: #2e5f31;
+    border-color: rgba(197, 160, 89, 0.8);
+  }
+}
+
+.animate-button-blink {
+  animation: button-blink 2s infinite ease-in-out;
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  transition: transform 0.2s ease;
+}
+
+/* Premium mute button gentle pulse glow and scale animation */
+@keyframes mute-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(30, 63, 32, 0.15), 0 0 0 0px rgba(197, 160, 89, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(30, 63, 32, 0.2), 0 0 8px 4px rgba(197, 160, 89, 0.35);
+  }
+}
+
+.animate-mute-pulse {
+  animation: mute-pulse 2.2s infinite ease-in-out;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
