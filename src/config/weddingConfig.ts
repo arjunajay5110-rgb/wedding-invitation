@@ -115,7 +115,7 @@ export const weddingConfig: WeddingConfig = {
     "/images/kerala_couple_new.png",
     "/images/kerala_venue.png"
   ],
-  musicUrl: "/neelashalabame.mp3",
+  musicUrl: "/Neelashalabame.mp3",
   weddingSchedule: [
     {
       time: { en: "10:00 AM - 10:30 AM", ml: "രാവിലെ 10:00 - 10:30" },
