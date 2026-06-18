@@ -11,7 +11,7 @@ import { ShareButton } from "@/components/ShareButton";
 import { GoldShower } from "@/components/GoldShower";
 import { KasavuBorder, JasmineGarland, LotusDivider, KeralaElephant } from "@/components/KeralaDecorations";
 import { weddingConfig } from "@/config/weddingConfig";
-import { Clock, MapPin, Phone, ArrowLeft, Info } from "lucide-react";
+import { Clock, MapPin, Phone, ArrowLeft, Info, ArrowDown } from "lucide-react";
 
 type FlowStep = "invite" | "details";
 
@@ -48,6 +48,7 @@ export default function GenericInvitationPage() {
   const [showLoader, setShowLoader] = useState(true);
   const [step, setStep] = useState<FlowStep>("invite");
   const [lang, setLang] = useState<"en" | "ml">("en");
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
   const handleLoaderComplete = () => {
     setShowLoader(false);
@@ -56,8 +57,21 @@ export default function GenericInvitationPage() {
   React.useEffect(() => {
     if (!showLoader) {
       window.scrollTo({ top: 0, behavior: "instant" });
+      setShowScrollIndicator(true); // Show indicator initially when step changes
     }
   }, [step, showLoader]);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 35) {
+        setShowScrollIndicator(false);
+      } else {
+        setShowScrollIndicator(true);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const t = uiTranslations[lang];
 
@@ -335,6 +349,26 @@ export default function GenericInvitationPage() {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Scroll Down Indicator - Bouncing rounded-square ArrowDown matching the reference design */}
+      <AnimatePresence>
+        {(!showLoader && showScrollIndicator) && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            className="fixed bottom-24 left-1/2 -translate-x-1/2 z-40 pointer-events-none flex items-center justify-center"
+          >
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-[14px] sm:rounded-[16px] border-[2.5px] border-[#C5A059] flex items-center justify-center text-[#C5A059] bg-[#FDFBF7]/60 backdrop-blur-[1px] shadow-sm shadow-[#1E3F20]/5"
+            >
+              <ArrowDown className="w-5.5 h-5.5 sm:w-6 sm:h-6 stroke-[3]" />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Bottom Kasavu Footer */}
       <KasavuBorder position="bottom" className="fixed bottom-0 left-0 z-30" />
