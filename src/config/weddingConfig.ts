@@ -71,7 +71,7 @@ export const weddingConfig: WeddingConfig = {
       ml: "രാധാകൃഷ്ണ പിള്ള"
     },
     mother: {
-      en: "Shylaja",
+      en: "Sailaja",
       ml: "ശൈലജ"
     }
   },
@@ -99,8 +99,8 @@ export const weddingConfig: WeddingConfig = {
   },
   brideResidenceMapsLink: "https://maps.app.goo.gl/Qnd4EoiXG8mhRa3i8?g_st=aw",
   groomResidenceAddress: {
-    en: "Saikripa, Kuttenperoor, Mannar",
-    ml: "സായികൃപ, കുറ്റൻപേരൂർ, മാന്നാർ"
+    en: "Saikripa, Kuttemperoor, Mannar",
+    ml: "സായികൃപ, കുറ്റമ്പേരൂർ, മാന്നാർ"
   },
   contactNumbers: [
     { name: "Vijayakumar K. K.", relation: "Bride's Family", number: "+91 9744724785" },
