@@ -13,16 +13,17 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Wedding Invitation | Keerthana & Sreerag",
-  description: "You are cordially invited to celebrate the wedding of Keerthana & Sreerag on September 13, 2026. Find the venue, schedule, and RSVP details here.",
+  title: "Keerthana & Sreerag Wedding Invitation",
+  description: "We warmly invite you to celebrate our wedding on September 13, 2026.",
   keywords: "Wedding Invitation, Keerthana Sreerag Wedding, Kerala Wedding, Nanak Convention Centre, Pandalam",
   openGraph: {
-    title: "Wedding Invitation | Keerthana & Sreerag",
-    description: "You are cordially invited to celebrate the wedding of Keerthana & Sreerag on September 13, 2026.",
+    title: "Keerthana & Sreerag Wedding Invitation",
+    description: "We warmly invite you to celebrate our wedding on September 13, 2026.",
+    url: "https://wedding-invitation-rho-three-83.vercel.app",
     type: "website",
     images: [
       {
-        url: "/images/kerala_couple_new.png", // Beautiful couple photo preview
+        url: "https://wedding-invitation-rho-three-83.vercel.app/preview.jpg",
         width: 1200,
         height: 630,
         alt: "Keerthana & Sreerag Wedding Invitation",
